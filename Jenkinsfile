@@ -22,8 +22,8 @@ pipeline {
 
         stage ('Build'){
             steps {
-				dependencyCheckAnalyzer includeCsvReports: false, includeHtmlReports: true, includeJsonReports: false
-				dependencyCheckPublisher canComputeNew: false, defaultEncoding: '', healthy: '', pattern: '', unHealthy: '', unstableTotalAll: '5', unstableTotalHigh: '2', unstableTotalLow: '2', unstableTotalNormal: '2'
+		        mvn -P jenkins -B -Ddependency.check.format=XML -Ddependency.check.skip=false clean verify
+               dependencyCheckPublisher canComputeNew: false, canRunOnFailed: true, defaultEncoding: '', healthy: '', pattern: '', unHealthy: '', unstableTotalHigh: '0'
             }
         }
 
