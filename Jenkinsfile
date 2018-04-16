@@ -23,7 +23,7 @@ pipeline {
         stage ('OWASP Dependency Check'){
             steps {
 		        sh 'mvn -Ddependency.check.format=XML -Ddependency.check.skip=false clean verify'
-               dependencyCheckPublisher canComputeNew: false, canRunOnFailed: true, defaultEncoding: '', healthy: '', pattern: '', unHealthy: '', unstableTotalHigh: '0'
+               dependencyCheckPublisher canComputeNew: false, canRunOnFailed: false, defaultEncoding: '', healthy: '', pattern: '', unHealthy: '', unstableTotalHigh: '0'
             }
         }
 
