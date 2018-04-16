@@ -16,7 +16,6 @@ public class FizzBuzz {
             return "Buzz";
         }
 
-        return String.valueOf(number + "new ");
-
+        return String.valueOf(number);
     }
 }
