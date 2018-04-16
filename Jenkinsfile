@@ -22,7 +22,8 @@ pipeline {
 
         stage ('Build'){
             steps {
-                dependencyCheckPublisher canComputeNew: false, canRunOnFailed: true, defaultEncoding: '', healthy: '', pattern: '', unHealthy: '', unstableTotalHigh: '0'
+				dependencyCheckAnalyzer  hintsFile: '', includeCsvReports: false, includeHtmlReports: true, includeJsonReports: false, includeVulnReports: true, isAutoupdateDisabled: true, outdir: '', scanpath: '', skipOnScmChange: true, skipOnUpstreamChange: true, suppressionFile: '', zipExtensions: ''
+				dependencyCheckPublisher canComputeNew: false, defaultEncoding: '', healthy: '', pattern: '', unHealthy: '', unstableTotalAll: '5', unstableTotalHigh: '2', unstableTotalLow: '2', unstableTotalNormal: '2'
             }
         }
 
