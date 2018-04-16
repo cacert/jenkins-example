@@ -20,5 +20,12 @@ pipeline {
             }
         }
 
+        stage('Build'){
+
+            sh "/tools/run :maven -- mvn -P jenkins -B -Ddependency.check.format=XML -Ddependency.check.skip=false clean verify "
+            dependencyCheckPublisher canComputeNew: false, canRunOnFailed: true, defaultEncoding: '', healthy: '', pattern: '', unHealthy: '', unstableTotalHigh: '0'
+
+        }
+
     }
 }
