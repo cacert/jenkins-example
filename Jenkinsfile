@@ -20,9 +20,9 @@ pipeline {
             }
         }
 
-        stage ('Build'){
+        stage ('OWASP Dependency Check'){
             steps {
-		        sh 'mvn -P jenkins -B -Ddependency.check.format=XML -Ddependency.check.skip=false clean verify'
+		        sh 'mvn -Ddependency.check.format=XML -Ddependency.check.skip=false clean verify'
                dependencyCheckPublisher canComputeNew: false, canRunOnFailed: true, defaultEncoding: '', healthy: '', pattern: '', unHealthy: '', unstableTotalHigh: '0'
             }
         }
